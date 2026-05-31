@@ -1,9 +1,16 @@
-import { FileText } from 'lucide-react';
+import { FileText, Menu } from 'lucide-react';
 
-export default function Header({ documentCount, isReady }) {
+export default function Header({ documentCount, isReady, onToggleSidebar }) {
   return (
     <header className="header" id="app-header">
       <div className="header-brand">
+        <button 
+          className="mobile-menu-btn" 
+          onClick={onToggleSidebar}
+          aria-label="Toggle Menu"
+        >
+          <Menu size={20} />
+        </button>
         <div className="header-logo" style={{ background: 'none', boxShadow: 'none', padding: 0 }}>
           <img src="/logo.png" alt="DocuMind Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '8px' }} />
         </div>

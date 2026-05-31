@@ -12,6 +12,7 @@ export default function App() {
   const [isUploading, setIsUploading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [toast, setToast] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Initialize state only once
   const [initialState] = useState(() => {
@@ -243,11 +244,23 @@ export default function App() {
       <div className="app-background" />
 
       <div className="app-container" id="app-container">
-        <Header documentCount={documents.length} isReady={isReady} />
+        <Header 
+          documentCount={documents.length} 
+          isReady={isReady} 
+          onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+        />
 
         <main className="app-main">
+          {/* Mobile Overlay */}
+          {isSidebarOpen && (
+            <div 
+              className="mobile-overlay" 
+              onClick={() => setIsSidebarOpen(false)}
+            />
+          )}
+
           {/* Sidebar */}
-          <aside className="sidebar" id="sidebar">
+          <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`} id="sidebar">
             {/* Chat Sessions list */}
             <div className="sidebar-section chats-section">
               <button 
