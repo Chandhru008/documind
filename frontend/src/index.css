@@ -78,12 +78,12 @@ body {
   font-family: var(--font-family);
   background: var(--bg-primary);
   color: var(--text-primary);
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
 }
 
 #root {
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Custom Scrollbars */
@@ -127,7 +127,7 @@ body {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .app-main {
@@ -801,6 +801,7 @@ body {
   border-radius: var(--radius-md);
   line-height: 1.6;
   font-size: 0.88rem;
+  word-break: break-word;
 }
 
 .message.user .message-content {
@@ -978,7 +979,7 @@ body {
   background: transparent;
   color: var(--text-primary);
   font-family: var(--font-family);
-  font-size: 0.85rem;
+  font-size: 16px; /* Prevents iOS auto-zoom */
   padding: 8px 0;
   outline: none;
   resize: none;
@@ -1135,7 +1136,7 @@ body {
    RESPONSIVE DESIGN
    ============================================ */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .app-main {
     flex-direction: row;
     position: relative;
