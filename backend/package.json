@@ -1,0 +1,27 @@
+{
+  "name": "rag-chat-pdf-backend",
+  "version": "1.0.0",
+  "description": "RAG-based Chat with PDFs backend using Node.js, LangChain, Groq, and FAISS",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@langchain/community": "^0.3.0",
+    "@langchain/core": "^0.3.0",
+    "@langchain/google-genai": "^0.1.0",
+    "@langchain/groq": "^0.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-rate-limit": "^8.5.2",
+    "faiss-node": "^0.5.1",
+    "groq-sdk": "^1.2.1",
+    "helmet": "^8.2.0",
+    "langchain": "^0.3.0",
+    "multer": "^1.4.5-lts.1",
+    "pdf-parse": "^1.1.1"
+  }
+}
