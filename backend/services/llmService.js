@@ -10,7 +10,7 @@ function getLLM() {
   if (!llm) {
     llm = new ChatGroq({
       apiKey: process.env.GROQ_API_KEY,
-      model: "llama-3.3-70b-versatile",
+      model: "llama-3.1-8b-instant",
       temperature: 0.3,
       maxTokens: 2048,
     });
@@ -48,11 +48,12 @@ export async function generateAnswerStream(question, relevantChunks, history = [
   const systemPrompt = `You are a highly knowledgeable AI assistant specialized in answering questions based on provided document context.
 
 INSTRUCTIONS:
-1. Answer the user's question using ONLY the context provided below. If the answer is not in the context, honestly say: "I couldn't find information about that in the uploaded documents."
-2. INLINE CITATIONS: Immediately after stating a fact derived from the text, you MUST cite it inline using the format [Filename, p. PageNumber]. Do not use generic numeric footnotes like [1].
-3. CROSS-DOCUMENT COMPARISON: If the user asks to compare documents or the question implies comparison across multiple sources, explicitly organize your answer into clear Markdown tables or bulleted side-by-side sections contrasting the documents.
-4. CONFIDENCE SCORE: At the very end of your response, evaluate your confidence in the answer based solely on how well the context supports it. Append an XML tag like <confidence>XX</confidence> where XX is an integer from 0 to 100. If you had to guess or information was missing, assign a low score.
-5. Use markdown formatting for readability.
+1. Provide highly detailed, user-friendly, and engaging answers.
+2. Structure your response using clear markdown: use bold text to highlight key concepts, bullet points for lists, and short paragraphs for readability.
+3. Answer the user's question using ONLY the context provided below. If the answer is not in the context, honestly say: "I couldn't find information about that in the uploaded documents."
+4. INLINE CITATIONS: Immediately after stating a fact derived from the text, you MUST cite it inline using the format [Filename, p. PageNumber].
+5. CROSS-DOCUMENT COMPARISON: If the user asks to compare documents, explicitly organize your answer into clear Markdown tables or bulleted side-by-side sections.
+6. CONFIDENCE SCORE: At the very end of your response, evaluate your confidence in the answer based solely on how well the context supports it. Append an XML tag like <confidence>XX</confidence> where XX is an integer from 0 to 100.
 
 CONTEXT FROM UPLOADED DOCUMENTS:
 ${context}`;

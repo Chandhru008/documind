@@ -1,4 +1,7 @@
-const API_BASE = "/api";
+// Bypass Vercel's proxy buffering in production which breaks Server-Sent Events (SSE) streaming.
+const API_BASE = import.meta.env.PROD 
+  ? "https://documind-lpo8.onrender.com/api" 
+  : "/api";
 
 // Generate or retrieve session ID
 function getSessionId() {

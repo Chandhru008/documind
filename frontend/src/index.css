@@ -887,35 +887,6 @@ body {
   color: var(--text-secondary);
 }
 
-.message.assistant .message-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 14px 0;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  display: block;
-  overflow-x: auto;
-}
-
-.message.assistant .message-content th,
-.message.assistant .message-content td {
-  padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: left;
-  font-size: 0.85rem;
-}
-
-.message.assistant .message-content th {
-  background: rgba(255, 255, 255, 0.05);
-  font-weight: 600;
-  color: var(--text-primary);
-  white-space: nowrap;
-}
-
-.message.assistant .message-content tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.02);
-}
-
 /* Source citations list */
 .message-sources {
   margin-top: 8px;
