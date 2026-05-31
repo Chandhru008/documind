@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { User, Sparkles, FileText, ChevronDown, ChevronUp, MessageSquare, Volume2, VolumeX } from 'lucide-react';
 import Loader from './Loader';
 
@@ -155,7 +156,7 @@ export default function ChatWindow({ messages, isLoading, onSuggestionClick }) {
               <div className="message-content">
                 {msg.role === 'assistant' ? (
                   <>
-                    <ReactMarkdown>{cleanContent}</ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{cleanContent}</ReactMarkdown>
                     {confidence && (
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px' }}>
                         <div className="confidence-badge" style={{
